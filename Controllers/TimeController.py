@@ -47,7 +47,7 @@ class Time():
 			newStopTime = ( timeram.getStopTime() + ( float(time) * 60 ) )
 			diffInSeconds = newStopTime - timeram.getCurrentTime();
 			diffInMInutes = float(diffInSeconds)/60
-			if diffInMInutes < 300:
+			if diffInMInutes < MAX_BLOCK_LIMIT:
 				timeram.updateStopTime(newStopTime)
 				return "Block time has been updated. Time left is " + self.getTimeLeftInMinutes() + "."
 			else:
