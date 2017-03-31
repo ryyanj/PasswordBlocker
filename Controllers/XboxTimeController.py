@@ -7,6 +7,7 @@ MAX_BLOCK_LIMIT = 1200
 
 class XboxTime():
 	def blockerNotSet(self):
+		#testing script
 		print('the current time is ' + str(timeram.getCurrentTime()) + ' the stop time is ' + str(timeram.getStopTime()) )
 		return timeram.getCurrentTime() > timeram.getStopTime()
 	def getTimeLeftInMinutes(self):
