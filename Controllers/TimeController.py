@@ -22,7 +22,7 @@ class Time():
 			timeram.updateStopTime(newTime)
 			return "Temporary block time has begun." 
 		else:
-			return "Blocker is currently set. Time left is " + self.getTimeLeftInMinutes() + "."
+			return "Block Time: " + self.getTimeLeftInMinutes() + "."
 	def getPassword(self):
 		if self.blockerNotSet():
 			return timeram.getPassword()
@@ -30,7 +30,7 @@ class Time():
 			return "Blocker is currently set."
 	def getTime(self):
 		if not self.blockerNotSet():
-			return "Blocker is currently set. Time left is " + self.getTimeLeftInMinutes() + "."
+			return "Time Left: " + self.getTimeLeftInMinutes() + "."
 		else:
 			return "Blocker is not yet set."
 	def setPassword(self,password):
@@ -49,7 +49,7 @@ class Time():
 			diffInMInutes = float(diffInSeconds)/60
 			if diffInMInutes < MAX_BLOCK_LIMIT:
 				timeram.updateStopTime(newStopTime)
-				return "Block time has been updated. Time left is " + self.getTimeLeftInMinutes() + "."
+				return "Updated Time: " + self.getTimeLeftInMinutes() + "."
 			else:
 				return "You have blocked your password for the maximum block limit of " + str(MAX_BLOCK_LIMIT) + " already."
 		else:
