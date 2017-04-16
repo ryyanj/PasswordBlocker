@@ -3,7 +3,7 @@ from XboxTimeModelInMemory import XboxTimeRAM
 from WriteToFile import writePasswordToFile, writeXboxPasswordToFile
 
 timeram = XboxTimeRAM()
-MAX_BLOCK_LIMIT = 1200 
+MAX_BLOCK_LIMIT = 4320 
 
 class XboxTime():
 	def blockerNotSet(self):
