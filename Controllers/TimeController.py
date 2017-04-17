@@ -3,9 +3,10 @@ from TimeModelInMemory import TimeRAM
 from WriteToFile import writePasswordToFile
 
 timeram = TimeRAM()
-MAX_BLOCK_LIMIT = 1440
+
 
 class Time():
+	MAX_BLOCK_LIMIT = 1440
 	def blockerNotSet(self):
 		print('the current time is ' + str(timeram.getCurrentTime()) + ' the stop time is ' + str(timeram.getStopTime()) )
 		return timeram.getCurrentTime() > timeram.getStopTime()
