@@ -51,7 +51,7 @@ class Time():
 				timeram.updateStopTime(newStopTime)
 				return "Updated Time: " + self.getTimeLeftInMinutes() + "."
 			else:
-				return "You have blocked your password for the maximum block limit of " + str(MAX_BLOCK_LIMIT) + " already." + str(diffInMInutes)
+				return "You have blocked your password for the maximum block limit of " + str(MAX_BLOCK_LIMIT) + " already."
 		else:
 			return  "Blocker is not yet set."
 
