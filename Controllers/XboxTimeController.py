@@ -1,9 +1,16 @@
 import time
+import datetime
 from XboxTimeModelInMemory import XboxTimeRAM
 from WriteToFile import writePasswordToFile, writeXboxPasswordToFile
 
 timeram = XboxTimeRAM()
 MAX_BLOCK_LIMIT = 4320 
+
+
+
+
+
+ 
 
 class XboxTime():
 	def blockerNotSet(self):
@@ -11,8 +18,14 @@ class XboxTime():
 		print('the current time is ' + str(timeram.getCurrentTime()) + ' the stop time is ' + str(timeram.getStopTime()) )
 		return timeram.getCurrentTime() > timeram.getStopTime()
 	def getTimeLeftInMinutes(self):
-		timeLeftInSeconds = timeram.getStopTime() - timeram.getCurrentTime()
-		return time.strftime('%H:%M:%S', time.gmtime(timeLeftInSeconds))
+		
+		seconds = timeLeftInSeconds = timeram.getStopTime() - timeram.getCurrentTime()
+		hours = seconds // 3600
+		minutes = (seconds % 3600) // 60
+		seconds = seconds % 60
+		td = datetime.timedelta(hours=hours, minutes=minutes, seconds=seconds)
+		
+		return '{}:{}:{}'.format(int(hours), int(minutes), int(seconds))
 	def setBlockTime(self,time):
 		if not time.isdigit():
 			return "This is not a valid entry."
@@ -52,7 +65,7 @@ class XboxTime():
 				timeram.updateStopTime(newStopTime)
 				return "Updated Time: " + self.getTimeLeftInMinutes() + "."
 			else:
-				return "The newStopTime is " + str(newStopTime) + "The new current time is " + str(timeram.getCurrentTime()) + "  You have blocked your password for the maximum block limit of " + str(MAX_BLOCK_LIMIT) + " already." 
+				return "You have blocked your password for the maximum block limit of " + str(MAX_BLOCK_LIMIT) + " already." 
 
 		else:
 			return  "Blocker is not yet set."
