@@ -140,4 +140,4 @@ def xboxshowNewPassword():
 
 if __name__=='__main__':
 	pillSched.pill_job()
-	app.run(debug=True, port=8081)
+	app.run(debug=True, port=80)
