@@ -19,8 +19,6 @@ time = Time()
 xboxtime = XboxTime()
 pillSched = PillScheduler()
 
-pillSched.pill_job()
-
 @app.route('/',methods=['GET'])
 def defaultFunction():
 	return render_template('index.html')
@@ -141,4 +139,5 @@ def xboxshowNewPassword():
 	return response
 
 if __name__=='__main__':
-	app.run(debug=True, port=80)
+	pillSched.pill_job()
+	app.run(debug=True, port=8081)
