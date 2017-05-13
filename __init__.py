@@ -20,7 +20,7 @@ xboxtime = XboxTime()
 pillSched = PillScheduler()
 
 
-pillSched.pill_job()
+
 
 @app.route('/',methods=['GET'])
 def defaultFunction():
