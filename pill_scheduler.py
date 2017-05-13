@@ -19,7 +19,7 @@ class PillScheduler():
 		scheduler.start()
 		scheduler.add_job(
 		func=self.print_pill_message,
-		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='*', minute='*', second='*'),
+		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='11', minute='30', second='0'),
 		id='printing_job',
 		name='Print pill message every day at 11:30 AM Eastern Time',
 		replace_existing=True)
@@ -34,6 +34,6 @@ class PillScheduler():
 		try:
 			message = client.api.account.messages.create(to="+14782513043",
                                              from_="+14782922142",
-                                             body="pill message to be sent")
+                                             body="Take your pill babe! I love you!")
 		except error:
 			print(error)
