@@ -2,6 +2,7 @@ import sys
 import os
 import time
 
+
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ROOT_DIR + '/Controllers')
 sys.path.insert(0, ROOT_DIR + '/Models')
@@ -9,11 +10,14 @@ sys.path.insert(0, ROOT_DIR + '/Utilities')
 
 from TimeController import Time
 from XboxTimeController import XboxTime
-from flask import Flask, jsonify, request, Response, render_template
+from flask import Flask, jsonify, request, Response, render_template 
+from pill_scheduler import PillScheduler
+
 app = Flask(__name__)
 
 time = Time()
 xboxtime = XboxTime()
+pillSched = PillScheduler()
 
 @app.route('/',methods=['GET'])
 def defaultFunction():
@@ -135,4 +139,5 @@ def xboxshowNewPassword():
 	return response
 
 if __name__=='__main__':
+	pillSched.pill_job()
 	app.run(debug=True, port=8081)
