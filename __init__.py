@@ -17,9 +17,6 @@ app = Flask(__name__)
 
 time = Time()
 xboxtime = XboxTime()
-
-
-
 pillSched = PillScheduler()
 
 @app.route('/',methods=['GET'])
@@ -142,5 +139,5 @@ def xboxshowNewPassword():
 	return response
 
 if __name__=='__main__':
-	
-	app.run(debug=True, port=80)
+	pillSched.pill_job()
+	app.run(debug=True, port=8081)
