@@ -31,6 +31,9 @@ class PillScheduler():
 		#+14782513043 - ryyan's phone number
 		#+14782922142 - twilio number
 		#+12514228131 - avery's phone number
-		message = client.api.account.messages.create(to="+14782513043",
+		try:
+			message = client.api.account.messages.create(to="+14782513043",
                                              from_="+14782922142",
                                              body="pill message to be sent")
+		except error:
+			print(error)
