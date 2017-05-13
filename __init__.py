@@ -17,10 +17,10 @@ app = Flask(__name__)
 
 time = Time()
 xboxtime = XboxTime()
+
+
+
 pillSched = PillScheduler()
-
-
-
 
 @app.route('/',methods=['GET'])
 def defaultFunction():
