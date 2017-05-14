@@ -17,7 +17,7 @@ client = Client(account_sid, auth_token)
 scheduler = BackgroundScheduler()
 
 class PillScheduler():
-	#est = EST()
+	est = EST()
 	def pill_job(self):
 		scheduler.start()
 		scheduler.add_job(
