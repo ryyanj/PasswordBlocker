@@ -2,6 +2,8 @@ import sys
 import os
 import time
 import datetime
+from pytz import timezone
+import pytz
 
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -15,13 +17,15 @@ from flask import Flask, jsonify, request, Response, render_template
 from pill_scheduler import PillScheduler
 
 app = Flask(__name__)
-
+eastern = timezone('US/Eastern')
 time = Time()
 xboxtime = XboxTime()
 pillSched = PillScheduler()
 
 #start pill job
 pillSched.pill_job()
+
+print(datetime.now(eastern))
 
 @app.route('/',methods=['GET'])
 def defaultFunction():
