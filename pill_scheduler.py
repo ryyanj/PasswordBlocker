@@ -4,7 +4,7 @@ from twilio.rest import Client
 
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
-from est_timezone import EST
+#from est_timezone import EST
 
 
 
@@ -17,7 +17,7 @@ client = Client(account_sid, auth_token)
 scheduler = BackgroundScheduler()
 
 class PillScheduler():
-	est = EST()
+	#est = EST()
 	def pill_job(self):
 		scheduler.start()
 		scheduler.add_job(
