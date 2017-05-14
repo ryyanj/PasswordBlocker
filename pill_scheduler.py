@@ -9,13 +9,12 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 
 logging.basicConfig()
-eastern = timezone('US/Eastern')
+utc = pytz.utc
 # Find these values at https://twilio.com/user/account
 account_sid = "ACdc0bae8c0927f2fc28fb18d90d742832"
 auth_token = "07b890944fba14516cdae417f4b9e4fb"
 client = Client(account_sid, auth_token)
 scheduler = BackgroundScheduler()
-print(datetime.now(eastern))
 class PillScheduler():
 	
 	def pill_job(self):
@@ -31,12 +30,13 @@ class PillScheduler():
 
 	def print_pill_message(self):
 		print('pill func was called')
+		print(datetime.now(utc))
 		#+14782513043 - ryyan's phone number
 		#+14782922142 - twilio number
 		#+12514228131 - avery's phone number
 		try:
 			message = client.api.account.messages.create(to="+14782513043",
                                              from_="+14782922142",
-                                             body="Take your pill babe! I love you! " + datetime.now(eastern))
+                                             body="Take your pill babe! I love you! " + str(datetime.now(utc)))
 		except error:
 			print(error)
