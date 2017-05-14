@@ -4,6 +4,9 @@ from twilio.rest import Client
 
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
+from est_timezone import EST
+
+est = EST()
 
 logging.basicConfig()
 
@@ -19,7 +22,8 @@ class PillScheduler():
 		scheduler.start()
 		scheduler.add_job(
 		func=self.print_pill_message,
-		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='11', minute='30', second='0'),
+		print(est)
+		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='*', minute='*', second='*',timezone=est),
 		id='printing_job',
 		name='Print pill message every day at 11:30 AM Eastern Time',
 		replace_existing=True)
