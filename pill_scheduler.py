@@ -34,7 +34,7 @@ class PillScheduler():
 		#+14782922142 - twilio number
 		#+12514228131 - avery's phone number
 		try:
-			message = client.api.account.messages.create(to="+14782513043",
+			message = client.api.account.messages.create(to="+12514228131",
                                              from_="+14782922142",
                                              body="Don't forget to take your pill babe! I love you! ")
 		except error:
