@@ -86,15 +86,6 @@ def showNewPassword():
 
 
 
-
-
-
-
-
-
-
-
-
 @app.route('/xboxsetTime',methods=['GET'])
 def xboxsetTime():
 	response = Response('<h2><a href="/">Home</a><br><body style="background-color:blue;"><form action="/xboxshowNewTime" width="2000px" method="POST"><input name="t"><input type="submit" value="Enter Time"></form></body>')
