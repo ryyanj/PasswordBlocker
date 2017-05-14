@@ -9,18 +9,20 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 
 logging.basicConfig()
+eastern = timezone('US/Eastern')
 # Find these values at https://twilio.com/user/account
 account_sid = "ACdc0bae8c0927f2fc28fb18d90d742832"
 auth_token = "07b890944fba14516cdae417f4b9e4fb"
 client = Client(account_sid, auth_token)
 scheduler = BackgroundScheduler()
+print(datetime.now(eastern))
 class PillScheduler():
 	
 	def pill_job(self):
 		scheduler.start()
 		scheduler.add_job(
 		func=self.print_pill_message,
-		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='5', minute='43', second='00'),
+		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='1', minute='2', second='30',timezone=eastern),
 		id='printing_job',
 		name='Print pill message every day at 11:30 AM Eastern Time',
 		replace_existing=True)
