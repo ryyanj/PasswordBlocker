@@ -36,9 +36,10 @@ averyMeditationSched.avery_meditation_job()
 def defaultFunction():
 	return render_template('index.html')
 
+
 @app.route('/setTime',methods=['GET'])
 def setTime():
-	response = Response('<h2><a href="/">Home</a><br><body style="background-color:blue;"><form action="/showNewTime" width="2000px" method="POST"><input name="t"><input type="submit" value="Enter Time"></form></body>')
+	response = Response('</!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ryyan Password Blocker</title></head><h2><a href="/">Home</a><br><body style="background-color:blue;"><form action="/showNewTime" width="2000px" method="POST"><input name="t"><input type="submit" value="Enter Time"></form></body></html>')
 	response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
 	return response
 
@@ -51,7 +52,7 @@ def showNewTime():
 
 @app.route('/setExtendTime',methods=['GET'])
 def setExtendTime():
-	response = Response('<h2><a href="/">Home</a><br><body style="background-color:blue;"><form action="/showExtendTime" width="2000px" method="POST"><input name="et"><input type="submit" value="Enter Additional Time"></form></body>')
+	response = Response('</!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ryyan Password Blocker</title></head><h2><a href="/">Home</a><br><body style="background-color:blue;"><form action="/showExtendTime" width="2000px" method="POST"><input name="et"><input type="submit" value="Enter Additional Time"></form></body></html>')
 	response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
 	return response
 
@@ -76,7 +77,7 @@ def getPassword():
 
 @app.route('/setPassword',methods=['GET'])
 def setPassword():
-	response = Response('<body style="background-color:blue;"><form action="/showNewPassWord" width="2000px" method="POST"><input name="p"><input type="submit" value="Enter Password"></form></body>')
+	response = Response('</!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ryyan Password Blocker</title></head><body style="background-color:blue;"><form action="/showNewPassWord" width="2000px" method="POST"><input name="p"><input type="submit" value="Enter Password"></form></body></html>')
 	response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
 	return response
 
@@ -93,7 +94,7 @@ def showNewPassword():
 
 @app.route('/xboxsetTime',methods=['GET'])
 def xboxsetTime():
-	response = Response('<h2><a href="/">Home</a><br><body style="background-color:blue;"><form action="/xboxshowNewTime" width="2000px" method="POST"><input name="t"><input type="submit" value="Enter Time"></form></body>')
+	response = Response('</!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ryyan Password Blocker</title></head><h2><a href="/">Home</a><br><body style="background-color:blue;"><form action="/xboxshowNewTime" width="2000px" method="POST"><input name="t"><input type="submit" value="Enter Time"></form></body></html>')
 	response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
 	return response
 
@@ -106,7 +107,7 @@ def xboxshowNewTime():
 
 @app.route('/xboxsetExtendTime',methods=['GET'])
 def xboxsetExtendTime():
-	response = Response('<h2><a href="/">Home</a><br><body style="background-color:blue;"><form action="/xboxshowExtendTime" width="2000px" method="POST"><input name="et"><input type="submit" value="Enter Additional Time"></form></body>')
+	response = Response('</!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ryyan Password Blocker</title></head><h2><a href="/">Home</a><br><body style="background-color:blue;"><form action="/xboxshowExtendTime" width="2000px" method="POST"><input name="et"><input type="submit" value="Enter Additional Time"></form></body></html>')
 	response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
 	return response
 
@@ -131,7 +132,7 @@ def xboxgetPassword():
 
 @app.route('/xboxsetPassword',methods=['GET'])
 def xboxsetPassword():
-	response = Response('<body style="background-color:blue;"><form action="/xboxshowNewPassWord" width="2000px" method="POST"><input name="p"><input type="submit" value="Enter Password"></form></body>')
+	response = Response('</!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ryyan Password Blocker</title></head><body style="background-color:blue;"><form action="/xboxshowNewPassWord" width="2000px" method="POST"><input name="p"><input type="submit" value="Enter Password"></form></body><html>')
 	response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
 	return response
 
