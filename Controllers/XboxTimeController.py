@@ -66,7 +66,7 @@ class XboxTime():
 				return "Updated Time: " + self.getTimeLeftInMinutes() + "."
 			else:
 				timeram.updateStopTime(MAX_BLOCK_LIMIT)
-				return "You have blocked your password for the maximum block limit of " + str(MAX_BLOCK_LIMIT) + " ." 
+				return "You have blocked your password for the maximum block limit of " + str(MAX_BLOCK_LIMIT-1) + "." 
 
 		else:
 			return  "Blocker is not yet set."
