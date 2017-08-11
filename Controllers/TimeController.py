@@ -3,7 +3,7 @@ from TimeModelInMemory import TimeRAM
 from WriteToFile import writePasswordToFile
 
 timeram = TimeRAM()
-MAX_BLOCK_LIMIT = 1440
+MAX_BLOCK_LIMIT = 10000
 
 class Time():
 	def blockerNotSet(self):
