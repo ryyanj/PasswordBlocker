@@ -20,7 +20,7 @@ class Time():
 		
 		return '{}:{}:{}'.format(int(hours), int(minutes), int(seconds))
 	def setBlockTime(self,time):
-		if not time.isdigit():
+		if not time.isdigit() or float(time) < 0:
 			return "This is not a valid entry."
 		if float(time) > MAX_BLOCK_LIMIT:
 			return "are you sure you want to block your password the long?"
@@ -50,7 +50,7 @@ class Time():
 		else:
 			return "Password can't be updated while blocker is set."
 	def extendBlockTime(self,time):
-		if not self.blockerNotSet():
+		if not self.blockerNotSet() and float(time) > 0:
 			newStopTime = ( timeram.getStopTime() + ( float(time) * 60 ) )
 			diffInSeconds = newStopTime - timeram.getCurrentTime();
 			diffInMInutes = float(diffInSeconds)/60
@@ -59,6 +59,8 @@ class Time():
 				return "Updated Time: " + self.getTimeLeftInMinutes() + "."
 			else:
 				return "You have blocked your password for the maximum block limit of " + str(MAX_BLOCK_LIMIT) + " already."
+		elif float(time) < 0:
+			return "This is not a valid entry"
 		else:
 			return  "Blocker is not yet set."
 
