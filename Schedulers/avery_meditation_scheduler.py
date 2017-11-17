@@ -20,7 +20,7 @@ class AveryMeditationScheduler():
 		scheduler.start()
 		scheduler.add_job(
 		func=self.print_avery_meditation_job,
-		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='22', minute='30', second='00',timezone=timezone('US/Eastern')),
+		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='23', minute='30', second='00',timezone=timezone('US/Eastern')),
 		id='printing_job',
 		name='Print meditation schedule message every day at 10:30 pm Eastern Time',
 		replace_existing=True)
