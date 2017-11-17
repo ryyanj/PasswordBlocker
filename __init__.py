@@ -13,7 +13,7 @@ sys.path.insert(0, ROOT_DIR + '/Schedulers')
 from TimeController import Time
 from XboxTimeController import XboxTime
 from flask import Flask, jsonify, request, Response, render_template 
-from avery_pill_scheduler import PillScheduler
+from avery_pill_scheduler import AveryPillScheduler
 from avery_exercise_scheduler import AveryExerciseScheduler
 from avery_meditation_scheduler import AveryMeditationScheduler
 
@@ -22,12 +22,12 @@ app = Flask(__name__)
 time = Time()
 xboxtime = XboxTime()
 
-pillSched = PillScheduler()
+averyPillSched = AveryPillScheduler()
 averyExerciseSched = AveryExerciseScheduler()
 averyMeditationSched = AveryMeditationScheduler()
 
 #start scheduled jobs
-pillSched.pill_job()
+averyPillSched.avery_pill_job()
 averyExerciseSched.avery_exercise_job()
 averyMeditationSched.avery_meditation_job()
 
