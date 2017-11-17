@@ -16,14 +16,14 @@ utc = pytz.utc
 account_sid = "ACdc0bae8c0927f2fc28fb18d90d742832"
 auth_token = "07b890944fba14516cdae417f4b9e4fb"
 client = Client(account_sid, auth_token)
-scheduler = BackgroundScheduler()
+scheduler = BackgroundScheduler(timezone=utc)
 class PillScheduler():
 	
 	def pill_job(self):
 		scheduler.start()
 		scheduler.add_job(
 		func=self.print_pill_message,
-		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='21', minute='54', second='00',timezone=utc),
+		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='23', minute='02', second='00'),
 		id='printing_job',
 		name='Print pill message every day at 11:30 AM Eastern Time',
 		replace_existing=True)

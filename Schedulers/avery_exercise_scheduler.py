@@ -8,6 +8,8 @@ from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 
+#######REMEMBER WHEN DEBUGGING THE SCHEDULER MESSAGES WITH TWILIO IT TAKES UP TO TWO MINUTES FOR THE CODE TO BE FULLY DEPLOYED#######
+
 logging.basicConfig()
 utc = pytz.utc
 # Find these values at https://twilio.com/user/account
