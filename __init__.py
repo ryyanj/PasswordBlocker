@@ -13,7 +13,7 @@ sys.path.insert(0, ROOT_DIR + '/Schedulers')
 from TimeController import Time
 from XboxTimeController import XboxTime
 from flask import Flask, jsonify, request, Response, render_template 
-from pill_scheduler import PillScheduler
+from avery_pill_scheduler import PillScheduler
 from avery_exercise_scheduler import AveryExerciseScheduler
 from avery_meditation_scheduler import AveryMeditationScheduler
 
