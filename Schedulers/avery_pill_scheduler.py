@@ -20,7 +20,7 @@ class PillScheduler():
 		scheduler.start()
 		scheduler.add_job(
 		func=self.print_pill_message,
-		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='22', minute='08', second='00'),
+		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='22', minute='10', second='00'),
 		id='printing_job',
 		name='Print pill message every day at 11:30 AM Eastern Time',
 		replace_existing=True)
@@ -33,7 +33,7 @@ class PillScheduler():
 		#+14782922142 - twilio number
 		#+12514228131 - avery's phone number
 		try:
-			message = client.api.account.messages.create(to="+12514228131",
+			message = client.api.account.messages.create(to="+14782513043",
                                              from_="+14782922142",
                                              body="Don't forget to take your pill babe! I love you! ")
 		except error:
