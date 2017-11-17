@@ -21,13 +21,13 @@ class PillScheduler():
 		scheduler.start()
 		scheduler.add_job(
 		func=self.print_pill_message,
-		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='20', minute='42', second='00',timezone=utc),
+		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='20', minute='43', second='00',timezone=utc),
 		id='printing_job',
 		name='Print pill message every day at 11:30 AM Eastern Time',
 		replace_existing=True)
 		# Shut down the scheduler when exiting the app
 		atexit.register(lambda: scheduler.shutdown())
-//try 20 next i guess
+
 	def print_pill_message(self):
 		print('pill func was called')
 		#+14782513043 - ryyan's phone number
