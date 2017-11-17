@@ -9,6 +9,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 
 logging.basicConfig()
+utc = pytz.utc
 # Find these values at https://twilio.com/user/account
 account_sid = "ACdc0bae8c0927f2fc28fb18d90d742832"
 auth_token = "07b890944fba14516cdae417f4b9e4fb"
@@ -20,7 +21,7 @@ class AveryExerciseScheduler():
 		scheduler.start()
 		scheduler.add_job(
 		func=self.print_avery_exercise_job,
-		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='12-23', minute='22', second='00'),
+		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='12-23', minute='22', second='00',timezone=utc),
 		id='printing_job',
 		name='Print exercise schedule message every day on the 22nd minute of each hour between 11am and 10pm Eastern Time',
 		replace_existing=True)

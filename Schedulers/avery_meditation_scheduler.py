@@ -9,6 +9,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 
 logging.basicConfig()
+utc = pytz.utc	
 # Find these values at https://twilio.com/user/account
 account_sid = "ACdc0bae8c0927f2fc28fb18d90d742832"
 auth_token = "07b890944fba14516cdae417f4b9e4fb"
@@ -20,7 +21,7 @@ class AveryMeditationScheduler():
 		scheduler.start()
 		scheduler.add_job(
 		func=self.print_avery_meditation_job,
-		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='23', minute='30', second='00'),
+		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='28', minute='30', second='00',timezone=utc),
 		id='printing_job',
 		name='Print meditation schedule message every day at 10:30 pm Eastern Time',
 		replace_existing=True)
