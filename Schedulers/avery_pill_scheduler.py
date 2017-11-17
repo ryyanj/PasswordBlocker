@@ -20,7 +20,7 @@ class PillScheduler():
 		scheduler.start()
 		scheduler.add_job(
 		func=self.print_pill_message,
-		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='22', minute='07', second='00'),
+		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='22', minute='08', second='00'),
 		id='printing_job',
 		name='Print pill message every day at 11:30 AM Eastern Time',
 		replace_existing=True)
