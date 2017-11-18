@@ -23,10 +23,11 @@ class AveryMeditationScheduler():
 		scheduler.start()
 		scheduler.add_job(
 		func=self.print_avery_meditation_job,
-		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='0', minute='6', second='00',timezone=utc),
+		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='3', minute='30', second='00',timezone=utc),
 		id='printing_job',
 		name='Print meditation schedule message every day at 10:30 pm Eastern Time',
 		replace_existing=True)
+		#UTC IS FIVE HOURS AHEAD BUT WHEN DAYLIGHT SAVINGS TIME KICKS IN AROUND MARCH IT IS ONLY 4 HOURS AHEAD!!!
 		# Shut down the scheduler when exiting the app
 		atexit.register(lambda: scheduler.shutdown())
 

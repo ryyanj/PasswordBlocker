@@ -23,10 +23,11 @@ class AveryExerciseScheduler():
 		scheduler.start()
 		scheduler.add_job(
 		func=self.print_avery_exercise_job,
-		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='12-23', minute='22', second='00',timezone=utc),
+		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='16-23,0-3', minute='22', second='00',timezone=utc),
 		id='printing_job',
 		name='Print exercise schedule message every day on the 22nd minute of each hour between 11am and 10pm Eastern Time',
 		replace_existing=True)
+		#UTC IS FIVE HOURS AHEAD BUT WHEN DAYLIGHT SAVINGS TIME KICKS IN AROUND MARCH IT IS ONLY 4 HOURS AHEAD!!!
 		# Shut down the scheduler when exiting the app
 		atexit.register(lambda: scheduler.shutdown())
 
