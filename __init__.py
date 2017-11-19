@@ -12,6 +12,7 @@ sys.path.insert(0, ROOT_DIR + '/Schedulers')
 
 from TimeController import Time
 from XboxTimeController import XboxTime
+from DigitalOceanController import DigitalOcean
 from flask import Flask, jsonify, request, Response, render_template 
 from avery_pill_scheduler import AveryPillScheduler
 from avery_exercise_scheduler import AveryExerciseScheduler
@@ -21,6 +22,7 @@ from avery_meditation_scheduler import AveryMeditationScheduler
 app = Flask(__name__)
 time = Time()
 xboxtime = XboxTime()
+digitalocean = DigitalOcean()
 
 averyPillSched = AveryPillScheduler()
 averyExerciseSched = AveryExerciseScheduler()
@@ -140,6 +142,61 @@ def xboxsetPassword():
 def xboxshowNewPassword():
 	password = request.form['p'] 
 	response = Response(xboxtime.setPassword(password))
+	response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+	return response
+
+
+
+
+
+@app.route('/digitaloceansetTime',methods=['GET'])
+def digitaloceansetTime():
+	response = Response('</!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ryyan Password Blocker</title></head><h2><a href="/">Home</a><br><body style="background-color:blue;"><form action="/digitaloceanshowNewTime" width="2000px" method="POST"><input name="t"><input type="submit" value="Enter Time"></form></body></html>')
+	response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+	return response
+
+@app.route('/digitaloceanshowNewTime',methods=['POST'])
+def digitaloceanshowNewTime():
+	blockTime = request.form['t'] 
+	response = Response(digitalocean.setBlockTime(blockTime))
+	response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+	return response
+
+@app.route('/digitaloceansetExtendTime',methods=['GET'])
+def digitaloceansetExtendTime():
+	response = Response('</!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ryyan Password Blocker</title></head><h2><a href="/">Home</a><br><body style="background-color:blue;"><form action="/digitaloceanshowExtendTime" width="2000px" method="POST"><input name="et"><input type="submit" value="Enter Additional Time"></form></body></html>')
+	response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+	return response
+
+@app.route('/digitaloceanshowExtendTime',methods=['POST'])
+def digitaloceanshowExtendTime():
+	extendTime = request.form['et']
+	response = Response(digitalocean.extendBlockTime(extendTime))
+	response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+	return response
+
+@app.route('/digitaloceantime',methods=['GET'])
+def digitaloceangetTime():
+	response = Response(digitalocean.getTime())
+	response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+	return response
+
+@app.route('/digitaloceanpassword',methods=['GET'])
+def digitaloceangetPassword():
+	response = Response(digitalocean.getPassword())
+	response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+	return response
+
+@app.route('/digitaloceansetPassword',methods=['GET'])
+def digitaloceansetPassword():
+	response = Response('</!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ryyan Password Blocker</title></head><body style="background-color:blue;"><form action="/digitaloceanshowNewPassWord" width="2000px" method="POST"><input name="p"><input type="submit" value="Enter Password"></form></body><html>')
+	response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+	return response
+
+@app.route('/digitaloceanshowNewPassWord',methods=['POST'])
+def digitaloceanshowNewPassword():
+	password = request.form['p'] 
+	response = Response(digitalocean.setPassword(password))
 	response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
 	return response
 
