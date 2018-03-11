@@ -4,7 +4,7 @@ from DigitalOceanPasswordModelInMemory import DigitalOceanRAM
 from WriteToFile import writePasswordToFile
 
 digitalOceanRam = DigitalOceanRAM()
-MAX_BLOCK_LIMIT = 10000
+MAX_BLOCK_LIMIT = 10080
 
 class DigitalOcean():
 	def blockerNotSet(self):
@@ -58,6 +58,7 @@ class DigitalOcean():
 				digitalOceanRam.updateStopTime(newStopTime)
 				return "Updated Time: " + self.getTimeLeftInMinutes() + "."
 			else:
+				digitalOceanRam.updateStopTime(MAX_BLOCK_LIMIT)
 				return "You have blocked your password for the maximum block limit of " + str(MAX_BLOCK_LIMIT) + " already."
 		elif float(time) < 0:
 			return "This is not a valid entry"
