@@ -65,7 +65,6 @@ class XboxTime():
 				timeram.updateStopTime(newStopTime)
 				return "Updated Time: " + self.getTimeLeftInMinutes() + "."
 			else:
-				timeram.updateStopTime(MAX_BLOCK_LIMIT)
 				return "updated time to: " + str(MAX_BLOCK_LIMIT)
 		elif float(time) < 0:
 			return "This is not a valid entry"
