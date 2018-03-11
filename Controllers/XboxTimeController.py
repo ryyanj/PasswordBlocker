@@ -4,7 +4,7 @@ from XboxTimeModelInMemory import XboxTimeRAM
 from WriteToFile import writePasswordToFile, writeXboxPasswordToFile
 
 timeram = XboxTimeRAM()
-MAX_BLOCK_LIMIT = 10000 
+MAX_BLOCK_LIMIT = 10080 
 
 
 
@@ -65,7 +65,8 @@ class XboxTime():
 				timeram.updateStopTime(newStopTime)
 				return "Updated Time: " + self.getTimeLeftInMinutes() + "."
 			else:
-				return "You can't block your password that long."
+				timeram.updateStopTime(MAX_BLOCK_LIMIT)
+				return "updated time to: " + str(MAX_BLOCK_LIMIT)
 		elif float(time) < 0:
 			return "This is not a valid entry"
 		else:
