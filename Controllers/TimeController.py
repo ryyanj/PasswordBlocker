@@ -4,7 +4,7 @@ from TimeModelInMemory import TimeRAM
 from WriteToFile import writePasswordToFile
 
 timeram = TimeRAM()
-MAX_BLOCK_LIMIT = 10000
+MAX_BLOCK_LIMIT = 10080
 
 class Time():
 	def blockerNotSet(self):
@@ -58,6 +58,7 @@ class Time():
 				timeram.updateStopTime(newStopTime)
 				return "Updated Time: " + self.getTimeLeftInMinutes() + "."
 			else:
+				timeram.updateStopTime(MAX_BLOCK_LIMIT)
 				return "You have blocked your password for the maximum block limit of " + str(MAX_BLOCK_LIMIT) + " already."
 		elif float(time) < 0:
 			return "This is not a valid entry"
