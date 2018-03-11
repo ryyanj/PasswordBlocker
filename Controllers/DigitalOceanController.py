@@ -58,7 +58,6 @@ class DigitalOcean():
 				digitalOceanRam.updateStopTime(newStopTime)
 				return "Updated Time: " + self.getTimeLeftInMinutes() + "."
 			else:
-				digitalOceanRam.updateStopTime(MAX_BLOCK_LIMIT)
 				return "You have blocked your password for the maximum block limit of " + str(MAX_BLOCK_LIMIT) + " already."
 		elif float(time) < 0:
 			return "This is not a valid entry"
