@@ -4,7 +4,7 @@ from DigitalOceanPasswordModelInMemory import DigitalOceanRAM
 from WriteToFile import writePasswordToFile
 
 digitalOceanRam = DigitalOceanRAM()
-MAX_BLOCK_LIMIT = 10080
+MAX_BLOCK_LIMIT = 30000
 
 class DigitalOcean():
 	def blockerNotSet(self):

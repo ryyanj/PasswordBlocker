@@ -4,7 +4,7 @@ from XboxTimeModelInMemory import XboxTimeRAM
 from WriteToFile import writePasswordToFile, writeXboxPasswordToFile
 
 timeram = XboxTimeRAM()
-MAX_BLOCK_LIMIT = 10080 
+MAX_BLOCK_LIMIT = 30000 
 
 
 
