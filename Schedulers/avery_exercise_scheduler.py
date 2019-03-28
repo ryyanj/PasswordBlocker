@@ -46,7 +46,7 @@ class AveryExerciseScheduler():
 		#+14782922142 - twilio number
 		#+12514228131 - avery's phone number
 		try:
-			message = client.api.account.messages.create(to="+4782513043",
+			message = client.api.account.messages.create(to="+14782513043",
                                              from_="+14782922142",
                                              body="Don't forget to do your exercises!")
 		except error:
