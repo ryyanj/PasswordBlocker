@@ -28,7 +28,7 @@ class AveryExerciseScheduler():
 		#trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='16-23,0-3', minute='22', second='00',timezone=utc),
 		#id='printing_job',
 		#Use this one after March 10 when daylight savings time begins
-		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='15-23,0-2', minute='22', second='00',timezone=utc),
+		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='*', minute='*', second='*',timezone=utc),
 		id='printing_job',
 		name='Print exercise schedule message every day on the 22nd minute of each hour between 11am and 10pm Eastern Time',
 		replace_existing=True)
@@ -42,7 +42,7 @@ class AveryExerciseScheduler():
 		#+14782922142 - twilio number
 		#+12514228131 - avery's phone number
 		try:
-			message = client.api.account.messages.create(to="+12514228131",
+			message = client.api.account.messages.create(to="+14782513043",
                                              from_="+14782922142",
                                              body="Don't forget to do your exercises!")
 		except error:
