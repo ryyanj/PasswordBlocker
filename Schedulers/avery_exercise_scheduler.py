@@ -13,8 +13,8 @@ from apscheduler.triggers.cron import CronTrigger
 logging.basicConfig()
 utc = pytz.utc
 # Find these values at https://twilio.com/user/account
-account_sid = "ACdc0bae8c0927f2fc28fb18d90d742832"
-auth_token = "07b890944fba14516cdae417f4b9e4fb"
+account_sid = os.environ['ACCOUNT_SID']
+auth_token = os.environ['AUTH_TOKEN']
 client = Client(account_sid, auth_token)
 scheduler = BackgroundScheduler()
 class AveryExerciseScheduler():
