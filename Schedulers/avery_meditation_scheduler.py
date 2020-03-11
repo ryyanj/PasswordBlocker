@@ -24,8 +24,9 @@ class AveryMeditationScheduler():
 		scheduler.start()
 		scheduler.add_job(
 		func=self.print_avery_meditation_job,
-		#use this timer after daylight savings time ends on November 17
+		#use this timer after daylight savings time end on November 17
 		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='3', minute='30', second='00',timezone=utc),
+		#id='printing_job',
 		#use this timer after daylight savings time begins on March 10
 		#trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='2', minute='30', second='00',timezone=utc),
 		id='printing_job',

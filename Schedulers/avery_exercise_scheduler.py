@@ -25,10 +25,10 @@ class AveryExerciseScheduler():
 		scheduler.add_job(
 		func=self.print_avery_exercise_job,
 		#Use this one after Nov 17 when daylight savings time ends
-		#trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='16-23,0-3', minute='22', second='00',timezone=utc),
+		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='16-23,0-3', minute='22', second='00',timezone=utc),
 		#id='printing_job',
 		#Use this one after March 10 when daylight savings time begins
-		trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='15-23,0-2', minute='22', second='00',timezone=utc),
+		#trigger=CronTrigger(year='*', month='*', day='*', week='*', day_of_week='*', hour='15-23,0-2', minute='22', second='00',timezone=utc),
 		id='printing_job',
 		name='Print exercise schedule message every day on the 22nd minute of each hour between 11am and 10pm Eastern Time',
 		replace_existing=True)
