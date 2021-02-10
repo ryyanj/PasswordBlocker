@@ -14,8 +14,8 @@ from apscheduler.triggers.cron import CronTrigger
 logging.basicConfig()
 utc = pytz.utc		
 # Find these values at https://twilio.com/user/account
-account_sid = os.environ['ACCOUNT_SID']
-auth_token = os.environ['AUTH_TOKEN']
+account_sid = 'ACdc0bae8c0927f2fc28fb18d90d742832'
+auth_token = 'bd0968ff79b1c26e84f5eae794757416'
 client = Client(account_sid, auth_token)
 scheduler = BackgroundScheduler()
 class AveryPillScheduler():
